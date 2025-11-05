@@ -1,10 +1,14 @@
 package model.entities;
 
 import java.io.Serializable;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Seller implements Serializable {
+
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private Integer id;
     private String name;
@@ -79,8 +83,8 @@ public class Seller implements Serializable {
                 "id = " + id +
                 ", name = '" + name + '\'' +
                 ", email = '" + email + '\'' +
-                ", birthDate = " + birthDate +
-                ", baseSalary = " + baseSalary +
+                ", birthDate = " + birthDate.format(fmt) +
+                ", baseSalary = " + String.format("%.2f", baseSalary) +
                 "\n" + department;
     }
 }
