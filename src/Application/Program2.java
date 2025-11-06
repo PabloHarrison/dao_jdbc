@@ -4,7 +4,6 @@ import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -26,18 +25,26 @@ public class Program2 {
         for(Department dep : listDep){
             System.out.println(dep);
         }
+        System.out.println();
 
-        System.out.println("\n=== Test 3: Department Insert ===");
+        System.out.println("=== Test 3: Department Insert ===");
         Department department3 = new Department(null, "Foods");
         departmentDao.insert(department3);
         System.out.println("Inserted new Id = " + department3.getId());
+        System.out.println();
 
-        System.out.println("\n=== Test 4: Department Update ===");
+        System.out.println("=== Test 4: Department Update ===");
         department = departmentDao.findById(3);
         department.setName("Music");
         departmentDao.update(department);
         System.out.println("Update Completed!");
+        System.out.println();
 
+        System.out.println("=== Test 6: Delete ===");
+        System.out.print("Enter id for delete test: ");
+        int id = sc.nextInt();
+        departmentDao.deleteById(id);
+        System.out.println("Deleted!");
 
         sc.close();
     }
