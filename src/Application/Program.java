@@ -6,7 +6,6 @@ import model.entities.Department;
 import model.entities.Seller;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -29,7 +28,7 @@ public class Program {
         }
 
         System.out.println("\n=== Test 3: Seller findAll ===");
-        list = sellerDao.findAll();
+        list = sellerDao.findAll("Name");
         for(Seller obj : list){
             System.out.println(obj);
         }

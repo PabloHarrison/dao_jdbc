@@ -74,6 +74,8 @@ public class SellerDaoJDBC implements SellerDao {
             st.setInt(5, obj.getDepartment().getId());
             st.setInt(6, obj.getId());
 
+
+
             st.executeUpdate();
 
         } catch (SQLException e) {
@@ -154,7 +156,7 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
     @Override
-    public List<Seller> findAll() {
+    public List<Seller> findAll(String order) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
@@ -162,7 +164,7 @@ public class SellerDaoJDBC implements SellerDao {
                     "SELECT seller.*, department.Name as DepName "
                             + "FROM seller INNER JOIN department "
                             + "ON seller.DepartmentId = department.Id "
-                            + "ORDER BY Name");
+                            + "ORDER BY " + order);
 
             rs = st.executeQuery();
             List<Seller> list = new ArrayList<>();

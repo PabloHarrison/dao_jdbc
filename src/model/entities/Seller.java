@@ -80,11 +80,11 @@ public class Seller implements Serializable {
     @Override
     public String toString() {
         return "Seller: " +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                ", email = '" + email + '\'' +
-                ", birthDate = " + birthDate.format(fmt) +
-                ", baseSalary = " + String.format("%.2f", baseSalary) +
+                "Id = " + id +
+                ", Name = '" + name + '\'' +
+                ", Email = '" + email + '\'' +
+                ", BirthDate = " + birthDate.format(fmt) +
+                ", BaseSalary = " + String.format("%.2f", baseSalary) +
                 "\n" + department;
     }
 }
